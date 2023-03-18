@@ -1,39 +1,43 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/todoSlice'
 
 const AddTodoForm = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const onSubmit = (event) => {
-    event.preventDefault();
-    console.log("user entered: " + value);
+    event.preventDefault()
+    console.log('user entered: ' + value)
     dispatch(
       addTodo({
         title: value,
       })
-    );
-    setValue("");
-  };
+    )
+    setValue('')
+  }
 
   return (
-    <form onSubmit={onSubmit} className="form-inline mt-3 mb-3">
-      <label className="sr-only">Todo Name</label>
+    <form onSubmit={onSubmit} className='form-inline mt-3 mb-3'>
+      <label className='sr-only' htmlFor='todo-input'>
+        Todo Name
+      </label>
       <input
-        type="text"
-        className="form-control mb-2 mr-sm-2"
-        placeholder="Add todo..."
+        type='text'
+        className='form-control mb-2 mr-sm-2'
+        placeholder='Add todo...'
         value={value}
         onChange={(event) => setValue(event.target.value)}
+        id='todo-input'
+        data-testid='todo-input'
       ></input>
 
-      <button type="submit" className="btn btn-primary mb-2">
+      <button type='submit' className='btn btn-primary mb-2'>
         Submit
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default AddTodoForm;
+export default AddTodoForm

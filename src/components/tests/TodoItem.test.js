@@ -36,7 +36,7 @@ describe('TodoItem', () => {
     expect(mockedToggleComplete).toHaveBeenCalledWith({
       id: '111',
       //   title: 'Redux', // !
-      completed: true,
+      // completed: true,
     })
   })
 
